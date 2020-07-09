@@ -1,5 +1,5 @@
 {
-  "name": "be-dashboard",
+  "name": "dashboard-backend",
   "version": "1.0.0",
   "description": "Backend Project for Upath's self-studying dashboard",
   "main": "dist/server.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/upathorg/be-dashboard.git"
+    "url": "https://github.com/upathorg/dashboard-backend.git"
   },
   "author": "Team Yellow, Upath",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/upathorg/be-dashboard/issues"
+    "url": "https://github.com/upathorg/dashboard-backend/issues"
   },
-  "homepage": "https://github.com/upathorg/be-dashboard#readme",
+  "homepage": "https://github.com/upathorg/dashboard-backend#readme",
   "dependencies": {
     "apollo-server-express": "^2.15.1",
     "cors": "^2.8.5",
