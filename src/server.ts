@@ -1,24 +1,23 @@
-import express, {Application} from "express";
-import {ApolloServer, gql} from 'apollo-server-express';
+import express, { Application } from "express";
+import { ApolloServer, gql } from "apollo-server-express";
 import cors from "cors";
-import fs from 'fs';
-import path from 'path';
-import {resolvers} from './graphql/resolvers'
+import fs from "fs";
+import path from "path";
+import { resolvers } from "./graphql/resolvers";
 import { DocumentNode } from "graphql";
 
 const app: Application = express();
 
 // schema definition from the query in the schema.graphql file
-const typeDefs: DocumentNode = gql(fs.readFileSync(path.join(__dirname, 'graphql/schema.graphql'), {encoding:'utf-8'}))
-
-
-
+const typeDefs: DocumentNode = gql(
+  fs.readFileSync(path.join(__dirname, "graphql/schema.graphql"), {
+    encoding: "utf-8",
+  })
+);
 
 // Creating the graphql apollo server
-const apolloServer: ApolloServer = new ApolloServer({typeDefs, resolvers})
-apolloServer.applyMiddleware({app, path: '/graphql'})
-
-
+const apolloServer: ApolloServer = new ApolloServer({ typeDefs, resolvers });
+apolloServer.applyMiddleware({ app, path: "/graphql" });
 
 // Cross-Origin Resource Sharing MiddleWare
 app.use(cors());
