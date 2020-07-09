@@ -36,3 +36,5 @@ When you are ready to test the final compiled files, run this command
 ```bash
 npm run start
 ```
+
+### Note: The src folder contains the typescript files while the dist folder contains the compiled javascript files
