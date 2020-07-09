@@ -1,0 +1,30 @@
+{
+  "name": "be-dashboard",
+  "version": "1.0.0",
+  "description": "Backend Project for Upath's self-studying dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upathorg/be-dashboard.git"
+  },
+  "author": "Team Yellow, Upath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upathorg/be-dashboard/issues"
+  },
+  "homepage": "https://github.com/upathorg/be-dashboard#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/node": "^14.0.20",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}
