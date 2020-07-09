@@ -2,7 +2,7 @@
   "name": "be-dashboard",
   "version": "1.0.0",
   "description": "Backend Project for Upath's self-studying dashboard",
-  "main": "server.js",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
