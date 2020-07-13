@@ -1,5 +1,5 @@
-# backend_node_graphql_blog
-Backend API for a Blog App using the following technology stack: PostgresQL Database, GraphQL Apollo Server for API requests, Node Js Runtime and Express Backend Frameworbuilt using Typescript
+# Backend or Upath's self studying dashboard
+Backend API for Upath's self studying dashboard using the following technology stack: PostgresQL Database, GraphQL Apollo Server for API requests, Node Js Runtime and Express Backend Framework built using Typescript
 
 # Localhost setup
 ```bash
@@ -15,11 +15,10 @@ This installs nodemon globally (optional: for some users you need to add sudo be
 # Database setup
 create a database in your local postgres and edit knexfile.ts and update it with your own database configuration (database name, host, username and password)
 
-cd into the directry that contains the knexfile.ts and enter the following commands
+cd into the directry that contains the knexfile.ts (cd src/) and enter the following commands
 
 ```bash
 npx knex migrate:latest
-npx knex seed:run
 ```
 
 # Usage
@@ -32,53 +31,68 @@ This runs your local server.
 
 Enter the URL of the local server on your browser and enter this command on the graphiql client user interface to test if the app is working
 ```bash
+
 {
-    posts {
-        id
-        title
-        content
-        likes
-    }
+  users {
+   firstName
+    lastName
+    email
+    username
+    password
+    
+  }
 }
 ```
 If you see the output below, then this confirms the app is working
 ```bash
 {
   "data": {
-    "posts": [
+    "users": [
       {
-        "id": 1,
-        "title": "Fullstack graphql app",
-        "content": "lorem ipsum lorem ipsun",
-        "likes": "0"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@gmail.com",
+        "username": "johndoe",
+        "password": "admin"
       },
       {
-        "id": 2,
-        "title": "Fullstack graphql app",
-        "content": "lorem ipsum lorem ipsun",
-        "likes": "0"
+        "firstName": "Iron",
+        "lastName": "Man",
+        "email": "tonystark@gmail.com",
+        "username": "tonystark",
+        "password": "avengers"
       },
       {
-        "id": 3,
-        "title": "Postgres graphql app",
-        "content": "lorem ipsum lorem ipsun",
-        "likes": "0"
-      },
-      {
-        "id": 4,
-        "title": "Node graphql app",
-        "content": "lorem ipsum lorem ipsun",
-        "likes": "0"
-      },
-      {
-        "id": 5,
-        "title": "React graphql app",
-        "content": "lorem ipsum lorem ipsun",
-        "likes": "0"
+        "firstName": "Thor",
+        "lastName": "Odinson",
+        "email": "thorodinson@gmail.com",
+        "username": "thorodinson",
+        "password": "strongestavenger"
       }
     ]
   }
 }
+```
+
+## Adding Data to the database table
+Enter the command below in the graphql test client
+
+```bash
+
+ mutation {
+   createUser(
+     firstName: "Thor"
+    lastName: "Odinson"
+    username: "thorodinson"
+    email: "thorodinson@gmail.com"
+    password: "strongestavenger"
+  ) {
+    firstName
+    lastName
+    username
+    email
+   }
+ }
 ```
 
 # Compilation
