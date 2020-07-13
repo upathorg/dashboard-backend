@@ -5,8 +5,8 @@ export const typeDefs = gql`
 
   type User {
     id: ID!
-    first_name: String
-    last_name: String
+    firstName: String
+    lastName: String
     email: String
     username: String
     password: String
@@ -19,8 +19,8 @@ export const typeDefs = gql`
 
   type Mutation {
     createUser(
-      first_name: String
-      last_name: String
+      firstName: String
+      lastName: String
       username: String
       email: String
       password: String

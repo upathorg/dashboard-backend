@@ -20,8 +20,8 @@ export const resolvers = {
       const result = await models.user.insertUser([
         {
           id: args.id,
-          first_name: args.first_name,
-          last_name: args.last_name,
+          firstName: args.firstName,
+          lastName: args.lastName,
           email: args.email,
           username: args.username,
           password: args.password
@@ -29,8 +29,8 @@ export const resolvers = {
       ]);
 
       const newuser = {
-        first_name: args.first_name,
-        last_name: args.last_name,
+        firstName: args.firstName,
+        lastName: args.lastName,
         email: args.email,
         username: args.username,
         password: args.password
