@@ -13,13 +13,7 @@ npm install -g nodemon
 This installs nodemon globally (optional: for some users you need to add sudo before the npm install)
 
 # Database setup
-create a database in your local postgres and edit knexfile.ts and update it with your own database configuration (database name, host, username and password)
-
-cd into the directry that contains the knexfile.ts (cd src/) and enter the following commands
-
-```bash
-npx knex migrate:latest
-```
+The databse created is hosted on heroku
 
 # Usage
 Run this command to start a development server using nodemon
