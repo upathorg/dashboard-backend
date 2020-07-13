@@ -1,11 +1,29 @@
-import {gql} from 'apollo-server-express';
-import { DocumentNode } from 'graphql';
+import { gql } from "apollo-server-express";
 
+export const typeDefs = gql`
+  # user table schema
 
-// schema definition from the query in the schema.graphql file
-export const typeDefs: DocumentNode = gql`
-    type Query {
-        greeting: String,
-        name: String
-    }
+  type User {
+    id: ID!
+    first_name: String
+    last_name: String
+    email: String
+    username: String
+    password: String
+  }
+
+  type Query {
+    user(id: ID!): User
+    users: [User!]
+  }
+
+  type Mutation {
+    createUser(
+      first_name: String
+      last_name: String
+      username: String
+      email: String
+      password: String
+    ): User!
+  }
 `;
