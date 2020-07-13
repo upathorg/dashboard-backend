@@ -21,7 +21,22 @@ Run this command to start a development server using nodemon
 ```bash
 npm run dev
 ```
-This runs your local server
+This runs your local server.
+
+Enter the URL of the local server on your browser and enter this command on the graphiql client user interface to test if the app is working
+```bash
+{
+    greeting
+}
+```
+If you see the output below, then this confirms the app is working
+```bash
+{
+  "data": {
+    "greeting": "Hello GraphQL World"
+  }
+}
+```
 
 # Compilation
 
