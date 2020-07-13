@@ -1,4 +1,4 @@
-# Backend or Upath's self studying dashboard
+# Backend for Upath's self studying dashboard
 Backend API for Upath's self studying dashboard using the following technology stack: PostgresQL Database, GraphQL Apollo Server for API requests, Node Js Runtime and Express Backend Framework built using Typescript
 
 # Localhost setup
