@@ -5,8 +5,6 @@ import { ApolloServer } from "apollo-server-express";
 import { resolvers } from "./graphql/resolvers";
 import { typeDefs } from "./graphql/schema";
 
-
-// Initialize the app
 const app: Application = express();
 
 // Set up Apollo Server
