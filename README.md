@@ -89,6 +89,22 @@ Enter the command below in the graphql test client
  }
 ```
 
+## Deleting Data from the database
+
+Enter the following command to delete data from the database
+```bash
+mutation {
+  deleteUser(id: 2){
+    success
+    message
+    user{
+      id
+      firstName
+    }
+  }
+}
+```
+
 # Compilation
 
 When you are ready to compile your typescript project to Javascript, run this command
