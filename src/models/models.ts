@@ -1,5 +1,8 @@
 import Knex from "knex";
-import { UserQueryInterface } from "../interfaces/modelInterfaces";
+import {
+  UserQueryInterface,
+  UserUpdateInterface,
+} from "../interfaces/modelInterfaces";
 
 export class Model {
   database: Knex;
@@ -18,15 +21,23 @@ export class Model {
     return this.database(this.table).where(conditions).select();
   }
 
-  findByOne(conditions: any){
-      return this.database(this.table).where(conditions).first();
+  findByOne(conditions: any) {
+    return this.database(this.table).where(conditions).first();
   }
 
-  findById(id: number){
-      return this.database(this.table).where({id}).select().first();
+  findById(id: number) {
+    return this.database(this.table).where({ id }).select().first();
   }
 
-  insertUser(values: UserQueryInterface[]){
-      return this.database(this.table).insert(values);
+  insertUser(values: UserQueryInterface[]) {
+    return this.database(this.table).insert(values);
+  }
+
+  updateUser(id: number, values: UserUpdateInterface[]) {
+    return this.database(this.table).where({ id }).update(values);
+  }
+
+  deleteUser(id: number){
+    return this.database(this.table).where({id}).del()
   }
 }

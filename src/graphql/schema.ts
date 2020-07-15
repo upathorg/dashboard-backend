@@ -25,5 +25,14 @@ export const typeDefs = gql`
       email: String
       password: String
     ): User!
+
+    deleteUser(id: ID!): DeleteUserResponse!
+  }
+
+
+  type DeleteUserResponse{
+    success: Boolean!
+    message: String!
+    user: User
   }
 `;
