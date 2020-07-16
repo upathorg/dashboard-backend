@@ -24,9 +24,31 @@ export const typeDefs = gql`
       username: String
       email: String
       password: String
-    ): User!
+    ): CreateUserResponse!
 
     deleteUser(id: ID!): DeleteUserResponse!
+
+    updateUser(
+      id: ID!
+      firstName: String
+      lastName: String
+      username: String
+      email: String
+      password: String
+     
+    ): UpdateUserResponse!
+  }
+
+  type CreateUserResponse{
+    success: Boolean!
+    message: String!
+    user: User
+  }
+
+  type UpdateUserResponse{
+    success: Boolean!
+    message: String!
+    user: User
   }
 
 

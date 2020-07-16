@@ -74,19 +74,45 @@ Enter the command below in the graphql test client
 ```bash
 
  mutation {
-   createUser(
-     firstName: "Thor"
-    lastName: "Odinson"
-    username: "thorodinson"
-    email: "thorodinson@gmail.com"
-    password: "strongestavenger"
+  createUser(
+    firstName: "Marshal"
+    lastName: "Bede"
+    email: "marshal@gmail.com"
+    password: "backenddev"
+    username: "marshalbede"
   ) {
-    firstName
-    lastName
-    username
-    email
-   }
- }
+    message
+    success
+    user {
+      id
+      firstName
+    }
+  }
+}
+```
+
+## Updating Data in the database table
+Enter the command below in the graphql test client
+
+```bash
+
+ mutation {
+  updateUser(
+    id: 3
+    firstName: "Marshal"
+    lastName: "Bede"
+    email: "marshal@gmail.com"
+    password: "backenddev"
+    username: "marshalbede"
+  ) {
+    message
+    success
+    user {
+      id
+      firstName
+    }
+  }
+}
 ```
 
 ## Deleting Data from the database

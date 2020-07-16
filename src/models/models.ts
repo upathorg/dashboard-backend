@@ -29,11 +29,11 @@ export class Model {
     return this.database(this.table).where({ id }).select().first();
   }
 
-  insertUser(values: UserQueryInterface[]) {
+  insertUser(values: UserQueryInterface) {
     return this.database(this.table).insert(values);
   }
 
-  updateUser(id: number, values: UserUpdateInterface[]) {
+  updateUser(id: number, values: UserUpdateInterface) {
     return this.database(this.table).where({ id }).update(values);
   }
 
