@@ -12,7 +12,7 @@ export const resolvers = {
       return users;
     },
 
-    user: async (_: any, { id }: { id: number }) => {
+    user: async (root: any, { id }: { id: number }) => {
       const user = await models.user.findById(id);
       return user;
     },
