@@ -12,14 +12,14 @@ export const resolvers = {
       return users;
     },
 
-    user: async (root: any, { id }: { id: number }) => {
+    user: async (_: any, { id }: { id: number }) => {
       const user = await models.user.findById(id);
       return user;
     },
   },
 
   Mutation: {
-    createUser: async (root: any, args: UserQueryInterface) => {
+    createUser: async (_: any, args: UserQueryInterface) => {
       await models.user.insertUser(
         {
           id: args.id,
@@ -44,7 +44,7 @@ export const resolvers = {
       return {newuser, success, message};
     },
 
-    deleteUser: async (root: any, { id }: { id: number }) => {
+    deleteUser: async (_: any, { id }: { id: number }) => {
       const user = await models.user.findById(id);
 
       if (!user) {
@@ -60,7 +60,7 @@ export const resolvers = {
     },
 
     updateUser: async (
-      root: any,
+      _: any,
       {
         id,
         firstName,
