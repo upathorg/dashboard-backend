@@ -20,28 +20,24 @@ export const resolvers = {
 
   Mutation: {
     createUser: async (_: any, args: UserQueryInterface) => {
-      await models.user.insertUser(
-        {
-          id: args.id,
-          firstName: args.firstName,
-          lastName: args.lastName,
-          email: args.email,
-          username: args.username,
-          password: args.password,
-        },
-      );
-
+     const result = await models.user.insertUser({
+        id: args.id,
+        firstName: args.firstName,
+        lastName: args.lastName,
+        email: args.email,
+        username: args.username,
+        password: args.password,
+      });
       const success = true;
       const message = "User Created Successfully";
-
-      const newuser = {
+      const user = {
         firstName: args.firstName,
         lastName: args.lastName,
         email: args.email,
         username: args.username,
         password: args.password,
       };
-      return {newuser, success, message};
+      return { user, success, message };
     },
 
     deleteUser: async (_: any, { id }: { id: number }) => {
@@ -67,8 +63,15 @@ export const resolvers = {
         lastName,
         email,
         password,
-        username
-      }: { id: number; firstName: string; lastName: string, email: string, password: string, username: string}
+        username,
+      }: {
+        id: number;
+        firstName: string;
+        lastName: string;
+        email: string;
+        password: string;
+        username: string;
+      }
     ) => {
       const user = await models.user.findById(id);
 
@@ -77,7 +80,13 @@ export const resolvers = {
         const message = "User not Found";
         return { message, success };
       } else {
-        await models.user.updateUser(id, {firstName, lastName, email, password, username})
+        await models.user.updateUser(id, {
+          firstName,
+          lastName,
+          email,
+          password,
+          username,
+        });
 
         const success = true;
         const message = "Updated Successfully";

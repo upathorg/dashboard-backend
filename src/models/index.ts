@@ -3,7 +3,7 @@ import database from "../data/db"
 
 
 
-const user = new User(database)
+const user = new User(database, 'dashboard')
 
 const models = {
     user

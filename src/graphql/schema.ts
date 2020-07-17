@@ -42,7 +42,7 @@ export const typeDefs = gql`
   type CreateUserResponse{
     success: Boolean!
     message: String!
-    user: User
+    user: User!
   }
 
   type UpdateUserResponse{
