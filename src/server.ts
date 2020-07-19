@@ -13,7 +13,7 @@ apolloServer.applyMiddleware({ app, path: "/graphql" });
 
 
 app.use(cors());
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Server running on localhost:${port}/graphql`);
 });

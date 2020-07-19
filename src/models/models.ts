@@ -1,7 +1,10 @@
 import Knex from "knex";
 import {
-  UserQueryInterface,
-  UserUpdateInterface,
+  StudentCreateInterface,
+  StudentUpdateInterface,
+  CourseCreateInterface,
+  CourseUpdateInterface,
+  EnrollCourseInterface,
 } from "../interfaces/modelInterfaces";
 
 export class Model {
@@ -17,7 +20,7 @@ export class Model {
     return this.database(this.table).select();
   }
 
-  find(conditions: any) {
+  find(conditions: {}) {
     return this.database(this.table).where(conditions).select();
   }
 
@@ -29,15 +32,33 @@ export class Model {
     return this.database(this.table).where({ id }).select().first();
   }
 
-  insertUser(values: UserQueryInterface) {
+  insertStudent(values: StudentCreateInterface) {
     return this.database(this.table).insert(values);
   }
 
-  updateUser(id: number, values: UserUpdateInterface) {
+  updateStudent(id: number, values: StudentUpdateInterface) {
     return this.database(this.table).where({ id }).update(values);
   }
 
-  deleteUser(id: number){
+  deleteStudent(id: number){
     return this.database(this.table).where({id}).del()
   }
+
+  insertCourse(values: CourseCreateInterface) {
+    return this.database(this.table).insert(values);
+  }
+
+  updateCourse(id: number, values: CourseUpdateInterface) {
+    return this.database(this.table).where({ id }).update(values);
+  }
+
+  deleteCourse(id: number){
+    return this.database(this.table).where({id}).del()
+  }
+
+  enrollCourse(values: EnrollCourseInterface) {
+    return this.database(this.table).insert(values);
+  }
+
+
 }

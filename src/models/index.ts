@@ -1,12 +1,17 @@
-import { User } from "./users"
-import database from "../data/db"
+import { Student } from "./students"
+import database from "./db"
+import { Course } from "./courses"
 
 
 
-const user = new User(database, 'dashboard')
+const student = new Student(database, 'students')
+const course = new Course(database, 'courses')
+const studentCourse = new Course(database, 'students_courses')
 
 const models = {
-    user
+    student,
+    course,
+    studentCourse
 }
 
 export default models;
