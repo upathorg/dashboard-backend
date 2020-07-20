@@ -203,7 +203,7 @@ export const resolvers = {
 
       if (!course) {
         const success = false;
-        const message = "student not Found";
+        const message = "course not Found";
         return { message, success };
       } else {
         await models.course.deleteCourse(id);
