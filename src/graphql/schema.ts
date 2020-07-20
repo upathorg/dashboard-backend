@@ -4,14 +4,14 @@ import {
   UpdateStudentResponse,
   DeleteStudentResponse,
   StudentType,
-} from "./schemas/student_type";
+} from "./schemas/studentType";
 import {
   CreateCourseResponse,
   UpdateCourseResponse,
   DeleteCourseResponse,
   EnrollCourseResponse,
   CourseType,
-} from "./schemas/course_type";
+} from "./schemas/courseType";
 import { mutations } from "./schemas/mutations";
 
 export const typeDefs = [
