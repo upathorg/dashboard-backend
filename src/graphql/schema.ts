@@ -13,6 +13,7 @@ import {
   CourseType,
 } from "./schemas/courseType";
 import { mutations } from "./schemas/mutations";
+import { InstructorType, CreateInstructorResponse, UpdateInstructorResponse, DeleteInstructorResponse } from "./schemas/instructorType";
 
 export const typeDefs = [
   Query,
@@ -25,5 +26,9 @@ export const typeDefs = [
   UpdateCourseResponse,
   DeleteCourseResponse,
   EnrollCourseResponse,
+  InstructorType,
+  CreateInstructorResponse,
+  UpdateInstructorResponse,
+  DeleteInstructorResponse,
   mutations,
 ];

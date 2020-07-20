@@ -8,6 +8,8 @@ export const Query = gql`
     students: [Student!]
     course(id: ID!): Course
     courses: [Course!]
+    instructor(id: ID!): Instructor
+    instructors: [Instructor]
   }
 
 `;

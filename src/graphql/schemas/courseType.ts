@@ -7,6 +7,7 @@ export const CourseType = gql`
     title: String
     description: String
     ratings: Float
+    instructor_id: Int
     students: [Student]
   }
 `;

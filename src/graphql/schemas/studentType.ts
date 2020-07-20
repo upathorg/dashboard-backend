@@ -10,7 +10,6 @@ export const StudentType =
         lastName: String
         email: String
         username: String
-        password: String
         courses: [Course]
         }
     `

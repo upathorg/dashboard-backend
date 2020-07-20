@@ -4,7 +4,6 @@ export interface StudentCreateInterface {
   lastName: string;
   username: string;
   email: string;
-  password: string;
 }
 
 export interface StudentUpdateInterface {
@@ -13,7 +12,6 @@ export interface StudentUpdateInterface {
   lastName?: string;
   username?: string;
   email?: string;
-  password?: string;
 }
 
 export interface CourseCreateInterface {
@@ -21,6 +19,7 @@ export interface CourseCreateInterface {
   title: string;
   description: string;
   ratings: number;
+  instructor_id: number;
 }
 
 export interface CourseUpdateInterface {
@@ -34,4 +33,20 @@ export interface EnrollCourseInterface{
   id?: number;
   student_id: number;
   course_id: number;
+}
+
+export interface InstructorCreateInterface {
+  id?: number;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+}
+
+export interface InstructorUpdateInterface {
+  id?: number;
+  firstName?: string;
+  lastName?: string;
+  username?: string;
+  email?: string;
 }

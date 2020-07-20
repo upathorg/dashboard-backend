@@ -1,4 +1,4 @@
-import { StudentCreateInterface, CourseCreateInterface, EnrollCourseInterface } from "../../interfaces/modelInterfaces";
+import { StudentCreateInterface, CourseCreateInterface, EnrollCourseInterface, InstructorCreateInterface } from "../../interfaces/modelInterfaces";
 import models from "../../models";
 
 export const mutationResolvers = {
@@ -11,7 +11,6 @@ export const mutationResolvers = {
             lastName: args.lastName,
             email: args.email,
             username: args.username,
-            password: args.password,
           });
           const success = true;
           const message = "student Created Successfully";
@@ -20,7 +19,6 @@ export const mutationResolvers = {
             lastName: args.lastName,
             email: args.email,
             username: args.username,
-            password: args.password,
           };
           return { student, success, message };
         },
@@ -47,14 +45,12 @@ export const mutationResolvers = {
             firstName,
             lastName,
             email,
-            password,
             username,
           }: {
             id: number;
             firstName: string;
             lastName: string;
             email: string;
-            password: string;
             username: string;
           }
         ) => {
@@ -69,7 +65,6 @@ export const mutationResolvers = {
               firstName,
               lastName,
               email,
-              password,
               username,
             });
     
@@ -85,6 +80,7 @@ export const mutationResolvers = {
             title: args.title,
             description: args.description,
             ratings: args.ratings,
+            instructor_id: args.instructor_id
           });
           const success = true;
           const message = "course Created Successfully";
@@ -92,6 +88,7 @@ export const mutationResolvers = {
             title: args.title,
             description: args.description,
             ratings: args.ratings,
+            instructor_id: args.instructor_id
           };
           return { course, success, message };
         },
@@ -153,6 +150,76 @@ export const mutationResolvers = {
           const success = true;
           const message = "course enrolled Successfully";
           return { success, message };
+        },
+
+        // Instructor's resolvers
+        createInstructor: async (_: any, args: InstructorCreateInterface) => {
+          const result = await models.instructor.insertInstructor({
+            firstName: args.firstName,
+            lastName: args.lastName,
+            email: args.email,
+            username: args.username,
+          });
+          const success = true;
+          const message = "instructor Created Successfully";
+          const instructor = {
+            firstName: args.firstName,
+            lastName: args.lastName,
+            email: args.email,
+            username: args.username,
+          };
+          return { instructor, success, message };
+        },
+    
+        deleteInstructor: async (_: any, { id }: { id: number }) => {
+          const instructor = await models.instructor.findById(id);
+    
+          if (!instructor) {
+            const success = false;
+            const message = "instructor not Found";
+            return { message, success };
+          } else {
+            await models.instructor.deleteInstructor(id);
+            const success = true;
+            const message = "Deleted Successfully";
+            return { message, success, instructor };
+          }
+        },
+    
+        updateInstructor: async (
+          _: any,
+          {
+            id,
+            firstName,
+            lastName,
+            email,
+            username,
+          }: {
+            id: number;
+            firstName: string;
+            lastName: string;
+            email: string;
+            username: string;
+          }
+        ) => {
+          const instructor = await models.instructor.findById(id);
+    
+          if (!instructor) {
+            const success = false;
+            const message = "instructor not Found";
+            return { message, success };
+          } else {
+            await models.instructor.updateInstructor(id, {
+              firstName,
+              lastName,
+              email,
+              username,
+            });
+    
+            const success = true;
+            const message = "Updated Successfully";
+            return { message, success, instructor };
+          }
         },
         
       },

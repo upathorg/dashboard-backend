@@ -7,6 +7,8 @@ export async function up(knex: Knex): Promise<void> {
         table.string("title").notNullable();
         table.text("description");
         table.float("ratings");
+        table.integer('instructor_id').references('id').inTable('instructors').onDelete('CASCADE');
+        table.timestamps(true, true);
       })
    
 }

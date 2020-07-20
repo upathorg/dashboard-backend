@@ -7,7 +7,6 @@ export const mutations = gql`
       lastName: String
       username: String
       email: String
-      password: String
     ): CreateStudentResponse!
 
     updateStudent(
@@ -16,7 +15,6 @@ export const mutations = gql`
       lastName: String
       username: String
       email: String
-      password: String
     ): UpdateStudentResponse!
 
     deleteStudent(id: ID!): DeleteStudentResponse!
@@ -25,6 +23,7 @@ export const mutations = gql`
       title: String
       description: String
       ratings: Float
+      instructor_id: Int
     ): CreateCourseResponse!
 
     updateCourse(
@@ -37,5 +36,22 @@ export const mutations = gql`
     deleteCourse(id: ID!): DeleteCourseResponse!
 
     createStudentCourses(student_id: Int, course_id: Int): EnrollCourseResponse!
+
+    createInstructor(
+      firstName: String
+      lastName: String
+      username: String
+      email: String
+    ): CreateInstructorResponse!
+
+    updateInstructor(
+      id: ID!
+      firstName: String
+      lastName: String
+      username: String
+      email: String
+    ): UpdateInstructorResponse!
+
+    deleteInstructor(id: ID!): DeleteInstructorResponse!
   }
 `;

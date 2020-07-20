@@ -5,6 +5,8 @@ import {
   CourseCreateInterface,
   CourseUpdateInterface,
   EnrollCourseInterface,
+  InstructorCreateInterface,
+  InstructorUpdateInterface,
 } from "../interfaces/modelInterfaces";
 
 export class Model {
@@ -60,5 +62,16 @@ export class Model {
     return this.database(this.table).insert(values);
   }
 
+  insertInstructor(values: InstructorCreateInterface) {
+    return this.database(this.table).insert(values);
+  }
+
+  updateInstructor(id: number, values: InstructorUpdateInterface) {
+    return this.database(this.table).where({ id }).update(values);
+  }
+
+  deleteInstructor(id: number){
+    return this.database(this.table).where({id}).del()
+  }
 
 }

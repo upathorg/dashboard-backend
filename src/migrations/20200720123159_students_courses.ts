@@ -8,6 +8,8 @@ export async function up(knex: Knex): Promise<void> {
       table.increments("id").primary();
       table.integer("student_id").references("id").inTable("students").onDelete('CASCADE');
       table.integer("course_id").references("id").inTable("courses").onDelete('CASCADE');
+      table.boolean('isCompleted').notNullable().defaultTo(false);
+      table.timestamps(true, true);
     })
       
    
