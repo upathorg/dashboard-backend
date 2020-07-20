@@ -1,7 +1,7 @@
 import { gql } from "apollo-server-express";
 
+// Course table schema and responses
 export const CourseType = gql`
-  # Course table schema and responses
   type Course {
     id: ID!
     title: String
@@ -28,7 +28,7 @@ export const UpdateCourseResponse = gql`
 `;
 
 export const DeleteCourseResponse = gql`
- type DeleteCourseResponse {
+  type DeleteCourseResponse {
     success: Boolean!
     message: String!
     course: Course
@@ -36,10 +36,8 @@ export const DeleteCourseResponse = gql`
 `;
 
 export const EnrollCourseResponse = gql`
-type EnrollCourseResponse{
+  type EnrollCourseResponse {
     success: Boolean!
     message: String!
   }
 `;
-
-

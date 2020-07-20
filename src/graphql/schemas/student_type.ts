@@ -1,9 +1,9 @@
 import { gql } from "apollo-server-express";
 
-
+// Student table schema and responses
 export const StudentType = 
     gql`
-        # Student table schema and responses
+        
         type Student {
         id: ID!
         firstName: String
