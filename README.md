@@ -1,6 +1,14 @@
 # Backend for Upath's self studying dashboard
 Backend API for Upath's self studying dashboard using the following technology stack: PostgresQL Database, GraphQL Apollo Server for API requests, Node Js Runtime and Express Backend Framework built using Typescript
 
+# Production url
+The URL endpoint that was deployed to heroku is: 
+
+```bash
+https://upathorg-dashboard-backend.herokuapp.com/graphql
+```
+
+If you want to run it on your localhost, then follow the following commands below
 # Localhost setup
 ```bash
 npm install
@@ -27,41 +35,69 @@ Enter the URL of the local server on your browser and enter this command on the 
 ```bash
 
 {
-  users {
-   firstName
+  students{
+    firstName
     lastName
     email
-    username
-    password
-    
+    courses{
+      title
+      description
+    }
   }
 }
 ```
 If you see the output below, then this confirms the app is working
 ```bash
 {
+  {
   "data": {
-    "users": [
+    "students": [
       {
-        "firstName": "John",
-        "lastName": "Doe",
-        "email": "johndoe@gmail.com",
-        "username": "johndoe",
-        "password": "admin"
+        "firstName": "Tony",
+        "lastName": "Stark",
+        "email": "ironman@gmail.com",
+        "courses": [
+          {
+            "title": "Node Crash Course",
+            "description": "Web dev Backend"
+          },
+          {
+            "title": "GraphQL Apollo server course",
+            "description": "Backend web dev/API"
+          }
+        ]
       },
       {
-        "firstName": "Iron",
-        "lastName": "Man",
-        "email": "tonystark@gmail.com",
-        "username": "tonystark",
-        "password": "avengers"
+        "firstName": "Steve",
+        "lastName": "Rodgers",
+        "email": "captainamerica@gmail.com",
+        "courses": [
+          {
+            "title": "GraphQL Apollo server course",
+            "description": "Backend web dev/API"
+          }
+        ]
       },
       {
         "firstName": "Thor",
         "lastName": "Odinson",
-        "email": "thorodinson@gmail.com",
-        "username": "thorodinson",
-        "password": "strongestavenger"
+        "email": "godofthunder@gmail.com",
+        "courses": [
+          {
+            "title": "GraphQL Apollo server course",
+            "description": "Backend web dev/API"
+          },
+          {
+            "title": "Node Crash Course",
+            "description": "Web dev Backend"
+          }
+        ]
+      },
+      {
+        "firstName": "Doctor",
+        "lastName": "Strange",
+        "email": "drstrange@gmail.com",
+        "courses": []
       }
     ]
   }
@@ -74,18 +110,35 @@ Enter the command below in the graphql test client
 ```bash
 
  mutation {
-  createUser(
-    firstName: "Marshal"
-    lastName: "Bede"
-    email: "marshal@gmail.com"
-    password: "backenddev"
-    username: "marshalbede"
-  ) {
-    message
+  createStudent(
+    firstName: "Peter"
+    lastName: "Parker"
+    username: "spiderman"
+    email: "spiderman@gmail.com"
+  ){
     success
-    user {
-      id
+    message
+    student{
       firstName
+      lastName
+      email
+    }
+  }
+}
+```
+
+The following results should be returned
+```bash
+{
+  "data": {
+    "createStudent": {
+      "success": true,
+      "message": "student Created Successfully",
+      "student": {
+        "firstName": "Doctor",
+        "lastName": "Strange",
+        "email": "drstrange@gmail.com"
+      }
     }
   }
 }
@@ -97,19 +150,17 @@ Enter the command below in the graphql test client
 ```bash
 
  mutation {
-  updateUser(
-    id: 3
-    firstName: "Marshal"
-    lastName: "Bede"
-    email: "marshal@gmail.com"
-    password: "backenddev"
-    username: "marshalbede"
-  ) {
-    message
+  updateStudent(
+    id: 4
+    username: "spiderman_updated"
+    email: "spiderman@gmail.com"
+  ){
     success
-    user {
-      id
+    message
+    student{
       firstName
+      lastName
+      email
     }
   }
 }
@@ -120,7 +171,7 @@ Enter the command below in the graphql test client
 Enter the following command to delete data from the database
 ```bash
 mutation {
-  deleteUser(id: 2){
+  deleteStudent(id: 2){
     success
     message
     user{
